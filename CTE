@@ -1,5 +1,6 @@
-Query 1: Find the average amount paid by the top 5 customers using CTEs.
+Query 1: Find the average amount paid by the top 5 customers using Common Table Expressions (CTEs).
 
+-- Start CTE
 WITH top_customers_cte (result) AS
     ( -- Start Subquery
     /*Order of tables
@@ -42,6 +43,7 @@ WITH top_customers_cte (result) AS
     ORDER BY SUM(A.amount) DESC
     LIMIT 5 -- END Select Top-5-Customers
         )
+-- END CTE
 SELECT AVG(total_amount_paid) as average
     FROM top_customers_cte
 ;
